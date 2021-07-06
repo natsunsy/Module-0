@@ -1,0 +1,54 @@
+<!--
+Copyright 2017-present, The Visdom Authors
+All rights reserved.
+This source code is licensed under the license found in the
+LICENSE file in the root directory of this source tree.
+-->
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="favicon.png">
+<!-- Bootstrap & jQuery -->
+<link rel="stylesheet" href=/static/css/bootstrap.min.css?v=e8c5daf01eae68ed7c1e277a6e544c7ad108a0fa877fb531d6d9f2210769b7da88e4e002c7b0be3b72154ebf7cbf01a795c8342ce2dad368bd6351e956195f8b>
+<script src=/static/js/jquery.min.js?v=53a2b560b20551672fbb0e6e72632d4fd1c7e2dd2ecf7337ebaaab179cb8be7c87e9d803ce7765706bc7fcbcf993c34587cd1237de5a279aea19911d69067b65></script>
+<script src=/static/js/bootstrap.min.js?v=8b3b64a1bb2f9e329f02d4cd7479065630184ebaed942ee61a9ff9e1ce34c28c0eecb854458977815cf3704a8697fa8a5d096d2761f032b74b70d51da3e37f45></script>
+<link rel="stylesheet" href=/static/css/react-resizable-styles.css?v=a5ba57f67c45b93ccf0e85aee677363a9267ca450452524278aa2538934caa2d425b3ad9de535608f5983729ff25fb9edc98b796cd639d6e4633e5d688c59309>
+<link rel="stylesheet" href=/static/css/react-grid-layout-styles.css?v=088afb33aca5476eb6b9bac95c72316c59771cea8c53b9f4c6429bb3b0ae728e6518b45e83855af2e213f9e734959da931f042142fe62aec80b6c0e0bcb7017f>
+<!-- Other deps -->
+<script src=/static/js/react-react.min.js?v=52fa608d7e6bb1982d7ba2364e0dd363219f5733177cc2794330878e79ba97bcf5d01a09f23183ff948745c92da50d60d8c8daf406832720f3912bc85fe232f3></script>
+<script src=/static/js/react-dom.min.js?v=57dfe873909119995858f3727fc88b77c35ae618be1158910bbe1128c4b2d1407e047dd903724452c6d087793f485dda3ca6e93485298817ae8eccf219bffa6b></script>
+<script src=/static/js/layout_bin_packer.js?v=bd0a340e63783f93e70652b477fea0efcb7550c7aa9ddae85e51a6e1a3ca94230cf7661f2fc067a612a3467662cd0ae4af99ef1134afe7768fe02ffa678f1e0a></script>
+<!-- Mathjax -->
+<script type='text/javascript' src=/static/js/mathjax/2.7.5/MathJax.js?v=d1da1cf612b14773d8c2ca38d910f5a79c92669cf3b8388ec0cadd08487659d2590a372614a73fc049cbfb3f1f050ae71e888d59ba3eddf88690e61705d429e0></script>
+<script type='text/x-mathjax-config'>MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']], processEscapes: true}});</script>
+<script type='text/javascript' src=/static/js/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js?v=7957886bc10b0642fb0ed11026272430ef9aa044702d6ebb5307e376e97a880afda24488eb53f530c574b44dc247909e51aecc3bb7a66b938187bbd2e0397cd0></script>
+<!-- Plotly -->
+<script src=/static/js/plotly-plotly.min.js?v=a1dc7238e3b0a448184274be4f317f3f7dcef837c6346ab287cf6927fbb669d761330f5921e7f733c6b0fe8b584a0b0fc4b7598b71d086523d2225f71f94b1a4></script>
+<!-- Custom styles for this template -->
+<script>
+// TODO: this is not great. Should probably be an endpoint with a JSON
+// response or the first thing the socket sends back.
+var ENV_LIST = [
+
+'main',
+
+];
+var ACTIVE_ENV = '';
+var USER = 'ryuza';
+var USE_POLLING = ('False' == 'True');
+// Plotly setup
+window.PLOTLYENV = window.PLOTLYENV || {};
+window.PLOTLYENV.BASE_URL = 'https://plot.ly';
+</script>
+<script src=/static/js/main.js?v=be25fdd7c09f3fcce8bde3406ced320fe2293dcb85e9233fd03394578d723b8fe5659aa1d379cca14473082d5d963775c8f073dbf7023ab1a9c25f9bdecc2d65></script>
+<link rel="stylesheet" href=/static/css/style.css?v=f6197744f9cd514785352e4963bf5785f65518e521cd4419dbf266f2f3c5a011493ee76dd7f539ded03b6350998f004e87aa9ecee209236f7c0246db653edaac>
+<title>visdom</title>
+<!-- <link rel="icon" href="http://example.com/favicon.png"> -->
+</head>
+<body>
+<noscript>JS is required</noscript>
+<div id="app"></div>
+</body>
+</html>
