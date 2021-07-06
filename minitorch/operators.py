@@ -7,44 +7,49 @@ import math
 def mul(x, y):
     ":math:`f(x, y) = x * y`"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    return x*y
 
 def id(x):
     ":math:`f(x) = x`"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    return x
 
 
 def add(x, y):
     ":math:`f(x, y) = x + y`"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    return x+y
 
 
 def neg(x):
     ":math:`f(x) = -x`"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    return -x
 
 
 def lt(x, y):
     ":math:`f(x) =` 1.0 if x is less than y else 0.0"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    if x < y:
+        return 1
+    else:
+        return 0
 
 def eq(x, y):
     ":math:`f(x) =` 1.0 if x is equal to y else 0.0"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    if x == y:
+        return 1
+    else:
+        return 0
 
 def max(x, y):
     ":math:`f(x) =` x if x is greater than y else y"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    if x > y:
+        return x
+    else:
+        return y
 
 def sigmoid(x):
     r"""
@@ -60,7 +65,10 @@ def sigmoid(x):
 
     """
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
+    if x >= 0:
+        return (1.0)/(1.0 +  math.exp(-x))
+    else:
+        return (math.exp(-x))/(1.0 + math.exp(x))
 
 
 def relu(x):
@@ -70,14 +78,18 @@ def relu(x):
     (See `<https://en.wikipedia.org/wiki/Rectifier_(neural_networks)>`_ .)
     """
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    if x >= 0:
+        return x
+    else:
+        return 0
 
 def relu_back(x, y):
     ":math:`f(x) =` y if x is greater than 0 else 0"
     # TODO: Implement for Task 0.1.
-    raise NotImplementedError('Need to implement for Task 0.1')
-
+    if x >= 0:
+        return y
+    else:
+        return 0
 
 EPS = 1e-6
 
@@ -125,8 +137,11 @@ def map(fn):
         function : a function that takes a list and applies `fn` to each element
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
-
+    def recorrer(ls):
+        for i in range(len(ls)):
+            ls[i] = fn(ls[i])
+        return ls    
+    return recorrer
 
 def negList(ls):
     "Use :func:`map` and :func:`neg` to negate each element in `ls`"
@@ -150,8 +165,13 @@ def zipWith(fn):
 
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
-
+    def recorrer(ls1, ls2):
+        ls3=[]
+        if len(ls1) == len(ls2):
+            for i in range(len(ls1)):
+                ls3.append(fn(ls1[i], ls2[i]))
+        return ls3    
+    return recorrer
 
 def addLists(ls1, ls2):
     "Add the elements of `ls1` and `ls2` using :func:`zipWith` and :func:`add`"
@@ -176,15 +196,31 @@ def reduce(fn, start):
 
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    def fun(ls):
+        i=0
 
+        if start is None:
+            if len(ls)>0:
+                valor = ls[0]
+                i+=1
+            else:
+                return None
+        else:
+            valor = start
+            if len(ls)>0:
+                for j in range(i,len(ls)):
+                    valor = fn(valor, ls[j])
+                return valor
+            else: return start
+    return fun
 
 def sum(ls):
     """
     Sum up a list using :func:`reduce` and :func:`add`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    return reduce(add, 0.0)(ls)
+
 
 
 def prod(ls):
@@ -192,4 +228,4 @@ def prod(ls):
     Product of a list using :func:`reduce` and :func:`mul`.
     """
     # TODO: Implement for Task 0.3.
-    raise NotImplementedError('Need to implement for Task 0.3')
+    return reduce(mul, 1.0)(ls)
